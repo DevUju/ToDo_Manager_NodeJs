@@ -13,7 +13,7 @@ app.use(express.static("node-js-playlist/public"));
 todoController(app)
 
 // Listen to Port
-localhost:3000/assets/styles.css
+// localhost:3000/assets/styles.css
 
 app.listen(3000);
 
