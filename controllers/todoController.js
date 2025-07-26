@@ -1,4 +1,6 @@
+var bodyParser = require("body-parser");
 var data = [{item: "Build DJF Website"}, {item: "Get a DE Form"}, {item: "Secure an Internship in BE"}]
+var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function(app){
     
@@ -6,8 +8,9 @@ module.exports = function(app){
         res.render("todo", {todos: data});
     });
 
-    app.post("/todo", function(req, res){
-        
+    app.post("/todo", urlEncodedParser, function(req, res){
+        data.push(req.body);
+        res.json(data)
     });
 
     app.delete("/todo/:item", function(req, res){
