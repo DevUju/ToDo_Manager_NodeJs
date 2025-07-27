@@ -1,5 +1,5 @@
 var mongoose = require("mongoose")
-mongoose.connect("mongodb+srv://agnesanosike:UjuAg123.@cluster0.mongodb.net/Todo_Manager")
+mongoose.connect("mongodb://localhost:27017/todo_manager")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("Connection error:", err));
 
@@ -8,7 +8,7 @@ var todoSchema = new mongoose.Schema({
     item: String
 });
 
-var Todo = mongoose.model("Todo", todoSchema);
+var Todo = mongoose.model("Todo", todoSchema, "Todo-Table");
 
 (async () => {
     try {
